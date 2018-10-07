@@ -1,0 +1,82 @@
+{% include 'partials/header.html' %}
+<script>
+        function checkAnswer(){
+            var x = document.forms['myForm']['answer'].value;
+            if(x == "{{qz.answer}}"){                
+                document.getElementById("res").innerHTML = "That's a correct answer, you have got 1 point!";
+                return false;
+            }
+            else if(x == ""){
+                alert("Please enter the answer");
+                return false;
+            }
+            else if(x != "{{qz.answer}}"){
+                document.getElementById("res").innerHTML = "That's an incorrect answer";
+                return false;
+            }
+        }
+</script>
+<div class='jumbotron' style='max-width: auto;margin: auto'class= 'form-group'>
+    <div>        
+        <div style="font-style:italic">
+            <label><h4>Welcome!</h4></label>
+        </div>
+        <div style="margin-left:490px">
+            <label><h2>Question Number {{qz.id}}</h2></label>
+        </div>
+        <div style="padding:auto">
+        <div>
+            <label><h3>Question: {{qz.question}}</h3></label>
+        </div>
+        <div class="list-group-item list-group-item-warning" style="margin:auto;padding:auto">
+            <label><strong>A:</strong> {{qz.option1}}</label>
+        </div>
+        <div class="list-group-item list-group-item-warning" style="margin:auto;padding:auto">
+            <label><strong>B:</strong> {{qz.option2}}</label>
+        </div>
+        <div class="list-group-item list-group-item-warning" style="margin:auto;padding:auto">
+            <label><strong>C:</strong> {{qz.option3}}</label>
+        </div>
+        <div class="list-group-item list-group-item-warning" style="margin:auto;padding:auto">
+            <label><strong>D:</strong> {{qz.option4}}</label>
+        </div>
+        </div>
+       </div>
+        <div><br>
+            <form action="" name = 'myForm' method="post" onsubmit="return checkAnswer()">
+            {% csrf_token %}
+            <!-- <div style="padding-left:170px">
+            <Strong>Answer: </Strong><input type="text" id='answer' name="answer"><br><br>
+            </div> -->
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Answer</span>
+            </div>
+            <input type="text" class="form-control" id='answer',name='answer'>
+            </div>
+        <center><input class = 'btn btn-warning btn-sm' type="submit" value="Submit" /></center><br>        
+        <strong>Result:</strong><center id="res" class="alert alert-info"></center>        
+        </div>
+    </form>  
+    <!-- <center><a class = 'btn btn-default btn' href="/start/index/">Choose Next</a><br><br> </center> -->
+    <div></div> 
+    <strong>Pick question number you wish to attempt</strong>
+    <nav aria-label="" style="margin-left:30%;">
+        <ul class="pagination pagination-lg">
+          <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+          <!-- <li class="page-item"><a class="page-link" href="">1</a></li>  Disabled-->
+          <li class="page-item"><a class="page-link" href="/start/details/2">2</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/3">3</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/4">4</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/5">5</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/6">6</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/7">7</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/8">8</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/9">9</a></li>
+          <li class="page-item"><a class="page-link" href="/start/details/10">10</a></li>
+          <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+        </ul>
+      </nav>
+</div>
+
+{% include 'partials/footer.html' %}

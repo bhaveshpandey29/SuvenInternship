@@ -1,0 +1,7 @@
+{% include 'partials/header.html' %}
+    <ul>
+        {% for qz in quizapp %}
+        {{qz.question}} : <a class = 'btn btn-warning btn-sm' href="/details/{{qz.id}}">View</a><br><br>        
+        {% endfor %}
+    </ul><br><br><br><br><br>
+{% include 'partials/footer.html' %}

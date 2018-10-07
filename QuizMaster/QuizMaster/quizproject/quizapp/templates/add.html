@@ -1,0 +1,35 @@
+{% include 'partials/header.html' %}
+<div style='max-width: 500px;margin:auto'class= 'form-group'>
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+          <label for="question">Question</label><br />
+          <input type="text" name="question" id="question" class="form-control" />
+          <br>
+
+          <label for="option1">Option 1</label><br />
+          <input type="text" name="option1" id="option1" class="form-control" />
+          <br>
+
+          <label for="option2">Option 2</label><br />
+          <input type="text" name="option2" id="option2" class="form-control" />
+          <br>
+
+          <label for="option3">Option 3</label><br />
+          <input type="text" name="option3" id="option3" class="form-control" />
+          <br>
+
+          <label for="option4">Option 4</label><br />
+          <input type="text" name="option4" id="option4" class="form-control" />
+          <br>
+
+          <label for="answer">Answer</label><br />
+          <input type="text" name="answer" id="answer" class="form-control" />
+          <br>
+          
+          <center><input class = 'btn btn-danger btn-sm' type="submit" value="Submit" /></center>
+        </form>
+        <br>
+<center><a class = 'btn btn-primary btn-sm'href="/start">Go Back</a></center>
+</div>
+    
+{% include 'partials/footer.html' %}
